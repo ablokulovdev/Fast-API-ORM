@@ -1,7 +1,7 @@
 from sqlalchemy import URL,create_engine
 from sqlalchemy.orm import sessionmaker,DeclarativeBase
 
-from core.config import config
+from app.core.config import config
 
 
 DATABASE_URL = URL.create(
@@ -13,7 +13,7 @@ DATABASE_URL = URL.create(
     port = config.DB_PORT
 )
 
-engine = create_engine(url=DATABASE_URL)
+engine = create_engine(url=DATABASE_URL,echo=True)
 
 LocalSession = sessionmaker(bind=engine)
 

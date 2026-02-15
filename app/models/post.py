@@ -8,7 +8,7 @@ from sqlalchemy import (
 from sqlalchemy.orm import relationship
 
 
-from db.database import Base
+from app.db.database import Base
 
 class Post(Base):
     
@@ -19,8 +19,8 @@ class Post(Base):
     description = Column(Text)
     author_id = Column(ForeignKey("users.id"),nullable=False)
     
-    user = relationship("User",back_populates="posts")
-    comments = relationship("Comment",back_populates="post",cascade="all, delete-orphan")
+    # user = relationship("User",back_populates="posts")
+    # comments = relationship("Comment",back_populates="post",cascade="all, delete-orphan")
     
     
     def __repr__(self):

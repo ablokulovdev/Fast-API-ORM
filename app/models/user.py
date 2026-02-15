@@ -4,7 +4,7 @@ from sqlalchemy import (
     String
 )
 from sqlalchemy.orm import relationship
-from db.database import Base
+from app.db.database import Base
 
 class User(Base):
     __tablename__ = "users"
@@ -16,8 +16,8 @@ class User(Base):
     gender = Column(String(50),nullable=False)
     phone = Column(String(50))
     
-    posts = relationship("Post", back_populates="user",cascade="all, delete-orphan")
-    comments = relationship("Comment", back_populates="user",cascade="all, delete-orphan")
+    # posts = relationship("Post", back_populates="user",cascade="all, delete-orphan")
+    # comments = relationship("Comment", back_populates="user",cascade="all, delete-orphan")
     
     
     def __repr__(self):
